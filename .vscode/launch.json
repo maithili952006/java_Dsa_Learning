@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run Java Program",
+      "request": "launch",
+      "mainClass": "Solide_rectangle",
+      "classPaths": [
+        "src/classes"
+      ],
+      "args": [],
+      "preLaunchTask": "Compile Java"
+    }
+  ]
+}
