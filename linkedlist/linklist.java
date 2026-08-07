@@ -101,11 +101,44 @@ class linklist {
         System.out.println("Null");
     }
 
+    public void reverseIterate(){
+        if(head == null || head.next == null){
+            return;
+        }
+        
+        Node prevNode = head;
+        Node currNode = head.next;
+        while(currNode != null){
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            //update
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+         head.next = null;
+         head = prevNode;
+    }
+
+    public Node reverseRecursive(Node head){
+
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node newHead = reverseRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
     public static void main(String args[]) {
 
         linklist list = new linklist();
         list.addFirst("M");
         list.addFirst("a");
+        list.addFirst("list");
+        list.addLast("Hey");
 
         list.printList();
 
@@ -117,6 +150,9 @@ class linklist {
         list.printList();
 
         System.out.println(list.getSize());
+
+        list.head = list.reverseRecursive(list.head);
+        list.printList();
 
     }
 }
